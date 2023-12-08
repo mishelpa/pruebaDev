@@ -1,3 +1,3 @@
 export class ConstantsInterceptor {
-  static readonly AUTHOR_ID = '143';
+  static readonly AUTHOR_ID = '100';
 }
