@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProductDto } from 'src/app/core/interfaces/products/product.interface';
+import { ProductDto } from 'src/app/core/interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,12 @@ export class ProductsService {
     return this.httpClient.put<ProductDto[]>('products', product);
   }
 
-  deleteProduct(id: number): Observable<any> {
+  deleteProduct(id: string): Observable<any> {
     return this.httpClient.delete<ProductDto[]>(`products?id=${id}`);
+  }
+
+  verificationIdProduct(id:string): Observable<Boolean> {
+    return this.httpClient.get<Boolean>(`products/verification?id=${id}`)
   }
 
 }
