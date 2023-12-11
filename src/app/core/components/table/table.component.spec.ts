@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TableComponent } from './table.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA, SimpleChange } from '@angular/core';
 
 describe('TableComponent', () => {
   let component: TableComponent;
@@ -38,7 +38,14 @@ describe('TableComponent', () => {
     component.qtyItemsPerPage = 5;
     component.ngOnInit();
     expect(component.itemsShowQty).toEqual(1);
+  });
 
+  it('should ngOnChanges', () => {
+    component.ngOnChanges({
+      items: new SimpleChange(null ,[product], true ),
+    });
+    fixture.detectChanges();
+    expect(component.items).toEqual([product]);
   });
 
   it('should showPageSelected', () => {

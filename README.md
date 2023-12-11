@@ -39,3 +39,18 @@ Ejecutar `npm i` y luego `ng serve`. Navegar a `http://localhost:4200/`.
 
 Ejecutar `ng test --code-coverage` para ejecutar los test unitarios. 
 
+1. **Coverage**
+
+    ![Coverage](images/test.png)
+
+2. **Coverage HTML**
+
+    Cuando se ejecuta el comando `ng test --code-coverage` se genera una carpeta coverage en el proyecto. Ingresar a la carpeta y abrir mediante un live server el index.html
+
+    ![Coverage](images/carpeta.png)
+
+    ![CoverageHtml](images/coverageHtml.png)
+
+    
+    
+

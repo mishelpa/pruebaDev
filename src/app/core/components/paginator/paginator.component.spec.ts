@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginatorComponent } from './paginator.component';
+import { SimpleChange } from '@angular/core';
 
 describe('PaginatorComponent', () => {
   let component: PaginatorComponent;
@@ -17,6 +18,17 @@ describe('PaginatorComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should ngOnChanges', () => {
+
+    component.ngOnChanges({
+      qtyItems: new SimpleChange(null ,6, true ),
+      pageSize: new SimpleChange(null ,5, true )
+    });
+    fixture.detectChanges();
+    expect(component.qtyItems).toEqual(6);
+    expect(component.pageSize).toEqual(5);
   });
 
   it('should previousPage', () => {

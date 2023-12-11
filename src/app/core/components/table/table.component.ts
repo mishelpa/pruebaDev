@@ -48,8 +48,6 @@ export class TableComponent {
         })
         return validator.some(el => el)
       })
-      console.log(this.itemsShow);
-
     })
   }
   ngOnChanges(changes: SimpleChanges): void
