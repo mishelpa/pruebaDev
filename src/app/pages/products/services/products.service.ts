@@ -22,7 +22,7 @@ export class ProductsService {
   }
 
   deleteProduct(id: string): Observable<any> {
-    return this.httpClient.delete<ProductDto[]>(`products?id=${id}`);
+    return this.httpClient.delete(`products?id=${id}`, { responseType: 'text'});
   }
 
   verificationIdProduct(id:string): Observable<Boolean> {

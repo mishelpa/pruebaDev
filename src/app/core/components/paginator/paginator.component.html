@@ -1,0 +1,26 @@
+<div class="paginator_container">
+  <div>{{qtyItems}} Resultados</div>
+  <div class="paginator_pages">
+    <span>
+      <a (click)="previousPage()">
+        &#10094;   Anterior
+      </a>
+    </span>
+    <span>
+      <a *ngFor="let pageNum of pages; index as i" (click)="selectPage(i)" [ngClass]="{'selectedPage':page === pageNum}">{{ i + 1 }} </a>
+    </span>
+    <span>
+      <a (click)="nextPage()">
+        Próximo   &#10095;
+      </a>
+    </span>
+  </div>
+  <div class="paginator_qty">
+    <select name="quantityItems" class="quantity-select" (change)="selectSize($event)">
+      <option value=5>5</option>
+      <option value=10>10</option>
+      <option value=20>20</option>
+    </select>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+
+* {
+  background-color: white;
+}
+.paginator_container {
+  height: 50px;
+  padding: 1rem 2rem 0rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  color: gray;
+
+  .selectedPage {
+    color: #1B2949;
+    font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .paginator_container {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

@@ -1,0 +1,9 @@
+.body_container {
+  padding: 20px 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .body_container {
+    padding: 10px;
+  }
+}

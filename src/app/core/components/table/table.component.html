@@ -1,0 +1,54 @@
+<input type="text" class="input_search" [formControl]="searchInput" placeholder="Buscar...">
+
+<div class="container">
+  <table class="table_container">
+    <thead class="table_headers">
+      <tr>
+        <th *ngFor="let header of headers"> {{ header.name }}</th>
+      </tr>
+    </thead>
+    <tbody class="table_body">
+      <tr *ngFor="let item of itemsShow">
+        <td *ngFor="let header of headers">
+          <ng-container *ngIf="header.type === 'date'">
+            <span>{{ item[header.id] | date:'shortDate' }}</span>
+          </ng-container>
+          <ng-container *ngIf="header.type === 'text'">
+            <span>{{ item[header.id] }}</span>
+          </ng-container>
+          <ng-container *ngIf="header.type === 'image'">
+            <img src={{item[header.id]}} alt="{{item[header.name]}}">
+          </ng-container>
+          <ng-container *ngIf="header.type === 'action'">
+            <div class="dropdown" id="drop-down">
+              <!-- <img src="../../../../assets/images/options.png" alt=""> -->
+              <h2>&#8285;</h2>
+              <label>
+                <input type="checkbox" name="actions">
+                <ul>
+                  <li (click)="goEditPage(item)">Editar</li>
+                  <li (click)="openModal(item)">Eliminar</li>
+                </ul>
+              </label>
+            </div>
+            <ng-container *ngIf="switchModal">
+              <app-modal (close)="closeModal($event)">
+                  <div class="body_container">
+                    <p>¿Estas seguro de eliminar el producto {{nameSelected}}?</p>
+                  </div>
+                  <hr>
+                  <div class="button_container">
+                    <button class="button_cancel" (click)="close()">Cancelar</button>
+                    <button class="button_action" (click)="deleteItem()">Confirmar</button>
+                  </div>
+              </app-modal>
+            </ng-container>
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-paginator (pageChanged)="showPageSelected($event)" (sizeChanged)="showQtySelected($event)" [pageSize]="qtyItemsPerPage" [qtyItems]="qty" [page]="pageNumberSelect" [itemsShowQty]="itemsShowQty"></app-paginator>
+

@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="title">
+    <h2 *ngIf="!edit">
+      Formulario de Registro
+    </h2>
+    <h2 *ngIf="edit">
+      Formulario de Edición
+    </h2>
+  </div>
+  <hr>
+  <form class="form_container" [formGroup]="form">
+    <div class="form_fields">
+      <div class="field">
+        <label>ID</label>
+        <input placeholder="Id" type="text" formControlName="id" [readonly]="edit">
+        <div *ngIf="form.controls['id']?.errors && form.controls['id'].dirty">
+          <p class="field_error" *ngIf="form.controls['id'].hasError('required')">Este campo es requerido</p>
+          <p class="field_error" *ngIf="form.controls['id'].hasError('minlength')">Minimo 3 carácteres</p>
+          <p class="field_error" *ngIf="form.controls['id'].hasError('maxlength')">Máximo 100 carácteres</p>
+        </div>
+        <div *ngIf="isUnavailable && form.controls['id'].dirty && !form.controls['id'].hasError('minlength')">
+          <p class="field_error">Id no disponible</p>
+        </div>
+      </div>
+      <div class="field">
+        <label>Nombre</label>
+        <input placeholder="Nombre" type="text" formControlName="name">
+        <div *ngIf="form.controls['name']?.errors && form.controls['name'].dirty">
+          <p class="field_error" *ngIf="form.controls['name'].hasError('required')">Este campo es requerido</p>
+          <p class="field_error" *ngIf="form.controls['name'].hasError('minlength')">Minimo 5 carácteres</p>
+          <p class="field_error" *ngIf="form.controls['name'].hasError('maxlength')">Máximo 100 carácteres</p>
+        </div>
+      </div>
+      <div class="field">
+        <label>Descripción</label>
+        <input placeholder="Descripción" type="text" formControlName="description">
+        <div *ngIf="form.controls['description']?.errors && form.controls['description'].dirty">
+          <p class="field_error" *ngIf="form.controls['description'].hasError('required')">Este campo es requerido</p>
+          <p class="field_error" *ngIf="form.controls['description'].hasError('minlength')">Minimo 10 carácteres</p>
+          <p class="field_error" *ngIf="form.controls['description'].hasError('maxlength')">Máximo 200 carácteres</p>
+        </div>
+      </div>
+      <div class="field">
+        <label>Logo</label>
+        <input placeholder="Logo" type="text" formControlName="logo">
+        <div *ngIf="form.controls['logo']?.errors && form.controls['logo'].dirty">
+          <p class="field_error" *ngIf="form.controls['logo'].hasError('required')">Este campo es requerido</p>
+        </div>
+      </div>
+      <div class="field">
+        <label>Fecha Liberación</label>
+        <input placeholder="Fecha Liberación" type="date" min="{{dateInitialRelease}}" formControlName="date_release" >
+      </div>
+      <div class="field">
+        <label>Fecha Revisión</label>
+        <input placeholder="Fecha Revisión" type="date" readonly value={{dateRevision}} formControlName="date_revision">
+      </div>
+    </div>
+    <div class="form_buttons">
+      <button class="button_reset" *ngIf="!edit" (click)="resetForm()">Reiniciar</button>
+      <button class="button_action" [disabled]="!(form.valid && !isUnavailable)" (click)="actionProduct()">Enviar</button>
+    </div>
+  </form>
+</div>

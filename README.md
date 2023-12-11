@@ -1,27 +1,41 @@
-# Prueba
+# Prueba Tecnica
+Este reto esta realizado con Angular v16 y Typescript 5.1.3
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+## Funcionalidades requeridas
 
-## Development server
+1. **F1 - Listado de productos financieros**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    ![Funcionalidad1](images/funcionalidad1.png)
 
-## Code scaffolding
+2. **F2 - Búsqueda de productos financieros**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    ![Funcionalidad2](images/funcionalidad2.png)
 
-## Build
+3. **F3 - Cantidad de registros**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    ![Funcionalidad3](images/funcionalidad3.png)
 
-## Running unit tests
+4. **F4 - Agregar producto**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    ![Funcionalidad4](images/funcionalidad4.png)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Funcionalidades opcionales
 
-## Further help
+1. **F5 - Editar producto**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    ![Funcionalidad5](images/funcionalidad5.png)
+
+2. **F6 - Eliminar producto**
+
+    ![Funcionalidad4](images/funcionalidad6.png)
+    
+
+## Ejecución del proyecto
+
+Ejecutar `npm i` y luego `ng serve`. Navegar a `http://localhost:4200/`. 
+
+## Ejecutar test unitarios
+
+Ejecutar `ng test --code-coverage` para ejecutar los test unitarios. 
+

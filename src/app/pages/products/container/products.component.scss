@@ -1,0 +1,27 @@
+.container_buttons {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    color: #1B2949;
+    padding: 10px 20px;
+    font-weight: 600;
+    margin: 1rem 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  .button_add {
+    background-color: #FFDD00;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .button_add {
+      width: 150px;
+    }
+  }
+
+}
